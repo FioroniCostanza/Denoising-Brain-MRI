@@ -12,7 +12,7 @@ BATCH_SIZE = 32
 NUM_DEVICES = 3
 TRAIN_ITERATIONS = int(TOTAL_IMAGE_SEEN / (BATCH_SIZE * NUM_DEVICES))
 
-dataset_dir = "/scratch/Costanza/ADNI_DDPM_S_R_PNG"
+dataset_dir = "/scratch/Costanza/ADNI_DDPM_PNG_Clean"
 
 data_dicts = []
 
