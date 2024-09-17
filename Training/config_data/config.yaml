@@ -8,7 +8,7 @@ diffusion:
     cosine_s: 0.008
   timestep_respacing: null
   mean_type: VELOCITY    
-  var_type: LEARNED_RANGE  # WAS: FIXED_SMALL
+  var_type: LEARNED_RANGE  
   loss_type: MSE
   verbose: false
 
@@ -18,7 +18,7 @@ optimizer:
 
 validation:
   classifier_cond_scale: 4
-  protocol: DDIM100  # TODO: DDPM?
+  protocol: DDIM100  
   log_original: true
   log_concat: true
   log_cls_indices: -1
@@ -30,7 +30,7 @@ model:
   channel_mult: [0.5, 1, 1, 2, 2, 4, 4]
   dropout: 0.0
   in_channels: 2
-  out_channels: 2 # WAS: 1 IF USING FIXED_SMALL
+  out_channels: 2 
   model_channels: 128
   num_head_channels: -1 
   num_heads: 4
