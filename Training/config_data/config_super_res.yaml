@@ -7,8 +7,8 @@ diffusion:
     beta_end: 0.02
     cosine_s: 0.008
   timestep_respacing: null
-  mean_type: START_X # WAS: VELOCITY    
-  var_type: LEARNED_RANGE  # WAS: FIXED_SMALL
+  mean_type: START_X   # FOR SUPER RESOLUTION QUALITY   
+  var_type: LEARNED_RANGE 
   loss_type: MSE
   verbose: false
 
@@ -30,7 +30,7 @@ model:
   channel_mult: [0.5, 1, 1, 2, 2, 4, 4]
   dropout: 0.0
   in_channels: 2
-  out_channels: 2 # WAS: 1 IF USING FIXED_SMALL
+  out_channels: 2 
   model_channels: 128
   num_head_channels: -1 
   num_heads: 4
