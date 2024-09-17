@@ -21,8 +21,9 @@ TRAIN_ITERATIONS = int(TOTAL_IMAGE_SEEN / (BATCH_SIZE * NUM_DEVICES))
 dataset_dir_1_5T = "/scratch/Costanza/Registration/ADNI_F_SK_Registered" 
 dataset_dir_only_3T = "/scratch/Costanza/PPMI_SkullStripping"
 
+max_patients = 5 # change the max_patients number also to 30
 patient_data_dicts_1_5T = load_patient_data_with_1_5T(dataset_dir_1_5T)
-patient_data_dicts_3T = load_patient_data_only_3T(dataset_dir_only_3T, max_patients=5)
+patient_data_dicts_3T = load_patient_data_only_3T(dataset_dir_only_3T, max_patients=max_patients) 
 
 test_size = 0.1  
 
@@ -37,7 +38,7 @@ split_dict = {
     "train_valid": combined_train_valid_ids,
     "test": test_patient_ids
 }
-with open("last_patient_splits_5Noisy.json", "w") as f:
+with open(f"last_patient_splits_{max_patients}Noisy.json", "w") as f:
     json.dump(split_dict, f)
 
 # Cross-Validation
@@ -119,7 +120,7 @@ trainer = Trainer(
     devices=-1,  
     nodes=1,
     wandb_project="Denoising", 
-    logger_instance="last_denoised_img_5Noisy",  
+    logger_instance=f"last_denoised_img_{max_patients}Noisy",  
 )
 
 # Start training
